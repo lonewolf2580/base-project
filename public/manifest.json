@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjExNzkxNDMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgyMTVCNDUyMDI0RWQxNTJkYUM0NDk0ZTgyZThkOWI4M2MzOTEyZDk0In0",
+    "payload": "eyJkb21haW4iOiJyb3VuZHVwLTN1aTRycW51by1sb25ld29sZjI1ODBzLXByb2plY3RzLnZlcmNlbC5hcHAifQ",
+    "signature": "MHhmNDI5OTI5OTI4NTUwMzYzNTNlMzJkNTg3NzIyZGI1MjBiZjhjOGRlZjkxODBhNTliMGRiYzQ4MmUwZjJmMmM2MThkYmMxZWM2MzI4NWQyZGVmYmIyNWM4YzI0NzFmOTYwOTBhOGQzMGVjMjk4MmY4M2NlNmU0MmQ2OTkzNjY1ZDFj"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Example Frame",
+    "iconUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/icon.png",
+    "homeUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app",
+    "imageUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/api/webhook"
+  }
+}
