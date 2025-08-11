@@ -49,7 +49,7 @@ export default function App() {
     if (context && !context.client.added) {
       return (
         <>
-          <Button
+          {/* <Button
             variant="ghost"
             size="sm"
             onClick={handleAddFrame}
@@ -57,7 +57,7 @@ export default function App() {
             icon={<Icon name="plus" size="sm" />}
           >
             Save Frame
-          </Button>
+          </Button> */}
           <div className="pr-1 justify-end">
             {saveFrameButton}
             <button
