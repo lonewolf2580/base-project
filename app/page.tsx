@@ -57,15 +57,17 @@ export default function App() {
             icon={<Icon name="plus" size="sm" />}
           >
             Save Frame
-          </Button><Button
-            variant="ghost"
-            size="sm"
-            onClick={close}
-            className="text-[var(--app-accent)] p-4"
-            icon={<Icon name="plus" size="sm" />}
-          >
-              Close Frame
-          </Button> 
+          </Button>
+          <div className="pr-1 justify-end">
+            {saveFrameButton}
+            <button
+              type="button"
+              className="cursor-pointer bg-transparent font-semibold text-sm pl-2"
+              onClick={close}
+              >
+              CLOSE
+            </button>
+          </div> 
         </>
       );
     }
