@@ -6,13 +6,13 @@
   },
   "frame": {
     "version": "1",
-    "name": "Example Frame",
-    "iconUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/icon.png",
-    "homeUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app",
-    "imageUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/image.png",
+    "name": "RoundUp",
+    "iconUrl": "https://roundup-seven.vercel.app/icon.png",
+    "homeUrl": "https://roundup-seven.vercel.app",
+    "imageUrl": "https://roundup-seven.vercel.app/image.png",
     "buttonTitle": "Check this out",
-    "splashImageUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/splash.png",
+    "splashImageUrl": "https://roundup-seven.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
-    "webhookUrl": "https://roundup-3ui4rqnuo-lonewolf2580s-projects.vercel.app/api/webhook"
+    "webhookUrl": "https://roundup-seven.vercel.app/api/webhook"
   }
 }
