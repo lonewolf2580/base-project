@@ -1,112 +1,91 @@
-# MiniKit Template
+# RoundUp – Digital Esusu on Base + Farcaster
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-onchain --mini`](), configured with:
+## 1. Problem Statement
+Across Africa and many other parts of the world, people rely on rotating savings and credit associations (*Esusu*, *Ajo*, *Thrift*) for financial security. These groups help members save, access lump sums, and build trust within communities.
 
-- [MiniKit](https://docs.base.org/builderkits/minikit/overview)
-- [OnchainKit](https://www.base.org/builders/onchainkit)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Next.js](https://nextjs.org/docs)
+However, the current system faces challenges:
+- Manual cash handling → risk of theft or mismanagement.
+- Trust issues → some collectors run away with funds.
+- No transparent record of contributions and payouts.
+- Difficult coordination across members in different locations.
 
-## Getting Started
+---
 
-1. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
-```
+## 2. Our Solution – RoundUp
+**RoundUp** is a **trustless, on-chain rotating savings platform** where contributions and payouts are managed by smart contracts on **Base**, and group coordination happens via **Farcaster**.
 
-2. Verify environment variables, these will be set up by the `npx create-onchain --mini` command:
+We take the traditional Esusu model and make it:
+- **Secure** – funds locked in smart contracts until payout.
+- **Transparent** – everyone can see transactions on-chain.
+- **Borderless** – members can participate from anywhere.
+- **Coordinated** – group updates and payment confirmations via Farcaster.
 
-You can regenerate the FARCASTER Account Association environment variables by running `npx create-onchain --manifest` in your project directory.
+---
 
-The environment variables enable the following features:
+## 3. How It Works
 
-- Frame metadata - Sets up the Frame Embed that will be shown when you cast your frame
-- Account association - Allows users to add your frame to their account, enables notifications
-- Redis API keys - Enable Webhooks and background notifications for your application by storing users notification details
+### Step 1: Create a Group
+- A user opens the **RoundUp Farcaster Frame**.
+- They enter:
+  - Group name & description
+  - Number of members & wallet addresses
+  - Contribution amount (in USDC)
+  - Payout interval (weekly/monthly)
+  - Payout order
+- The smart contract is deployed for this group with the rules locked in.
 
-```bash
-# Shared/OnchainKit variables
-NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=
-NEXT_PUBLIC_URL=
-NEXT_PUBLIC_ICON_URL=
-NEXT_PUBLIC_ONCHAINKIT_API_KEY=
- 
-# Frame metadata
-FARCASTER_HEADER=
-FARCASTER_PAYLOAD=
-FARCASTER_SIGNATURE=
-NEXT_PUBLIC_APP_ICON=
-NEXT_PUBLIC_APP_SUBTITLE=
-NEXT_PUBLIC_APP_DESCRIPTION=
-NEXT_PUBLIC_APP_SPLASH_IMAGE=
-NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR=
-NEXT_PUBLIC_APP_PRIMARY_CATEGORY=
-NEXT_PUBLIC_APP_HERO_IMAGE=
-NEXT_PUBLIC_APP_TAGLINE=
-NEXT_PUBLIC_APP_OG_TITLE=
-NEXT_PUBLIC_APP_OG_DESCRIPTION=
-NEXT_PUBLIC_APP_OG_IMAGE=
+### Step 2: Join & Contribute
+- Members join the group through the Farcaster Frame link.
+- Each payout cycle:
+  - Members deposit their contribution in USDC via Base.
+  - The smart contract records the payment and locks funds until payout date.
 
-# Redis config
-REDIS_URL=
-REDIS_TOKEN=
-```
+### Step 3: Automated Payouts
+- On payout day, the smart contract automatically sends the pooled amount to the member scheduled for that round.
+- Continues until all members have received their payout once.
 
-3. Start the development server:
-```bash
-npm run dev
-```
+### Step 4: Social Coordination on Farcaster
+- Each group has a dedicated **Farcaster feed**:
+  - Reminders for upcoming contributions
+  - Payment confirmation posts
+  - Payout announcements
 
-## Template Features
+---
 
-### Frame Configuration
-- `.well-known/farcaster.json` endpoint configured for Frame metadata and account association
-- Frame metadata automatically added to page headers in `layout.tsx`
+## 4. Core Features
 
-### Background Notifications
-- Redis-backed notification system using Upstash
-- Ready-to-use notification endpoints in `api/notify` and `api/webhook`
-- Notification client utilities in `lib/notification-client.ts`
+| Feature                 | Description |
+|-------------------------|-------------|
+| **Smart Contract Security** | Rules are enforced by code — no middleman. |
+| **Stablecoin Payments**     | USDC on Base for stability. |
+| **Automated Payouts**       | No delays, no manual handling. |
+| **Farcaster Integration**   | Social interaction, group management, and payment reminders inside Farcaster. |
+| **On-Chain Transparency**   | Public record of all contributions and payouts. |
+| **Low Fees**                | Base network ensures cheap, fast transactions. |
 
-### Theming
-- Custom theme defined in `theme.css` with OnchainKit variables
-- Pixel font integration with Pixelify Sans
-- Dark/light mode support through OnchainKit
+---
 
-### MiniKit Provider
-The app is wrapped with `MiniKitProvider` in `providers.tsx`, configured with:
-- OnchainKit integration
-- Access to Frames context
-- Sets up Wagmi Connectors
-- Sets up Frame SDK listeners
-- Applies Safe Area Insets
+## 5. Tech Stack
+- **Blockchain**: Solidity smart contracts on Base (Hardhat or Foundry)
+- **Frontend & Frames**: Next.js + Farcaster Frames SDK
+- **Wallet Connection**: WalletConnect / RainbowKit
+- **Stablecoin Payments**: USDC on Base
+- **Deployment**: Vercel (frontend) + Base mainnet/testnet for contracts
 
-## Customization
+---
 
-To get started building your own frame, follow these steps:
+## 6. Example Use Case
+A 10-person group in Nigeria creates a RoundUp group.  
+Each member contributes **$50 USDC** per month.  
+- Month 1 → **Member 1** receives $500 USDC directly from the smart contract.  
+- Month 2 → **Member 2** receives $500 USDC, and so on until all members have been paid.  
 
-1. Remove the DemoComponents:
-   - Delete `components/DemoComponents.tsx`
-   - Remove demo-related imports from `page.tsx`
+All activity is visible and coordinated via Farcaster, with zero chance of a member running away with funds.
 
-2. Start building your Frame:
-   - Modify `page.tsx` to create your Frame UI
-   - Update theme variables in `theme.css`
-   - Adjust MiniKit configuration in `providers.tsx`
+---
 
-3. Add your frame to your account:
-   - Cast your frame to see it in action
-   - Share your frame with others to start building your community
-
-## Learn More
-
-- [MiniKit Documentation](https://docs.base.org/builderkits/minikit/overview)
-- [OnchainKit Documentation](https://docs.base.org/builderkits/onchainkit/getting-started)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+## 7. Why This Will Stand Out in the Hackathon
+- **Real-world impact** → Tackles financial inclusion head-on.
+- **Cultural relevance** → Brings a traditional savings method to Web3.
+- **Social + Finance synergy** → Base provides secure transactions, Farcaster keeps members engaged.
+- **Scalable** → Works for local groups, global communities, NGOs, and co-ops.
