@@ -48,27 +48,15 @@ export default function App() {
   const saveFrameButton = useMemo(() => {
     if (context && !context.client.added) {
       return (
-        <>
-          {/* <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleAddFrame}
-            className="text-[var(--app-accent)] p-4"
-            icon={<Icon name="plus" size="sm" />}
-          >
-            Save Frame
-          </Button> */}
-          <div className="pr-1 justify-end">
-            {saveFrameButton}
-            <button
-              type="button"
-              className="cursor-pointer bg-transparent font-semibold text-sm pl-2"
-              onClick={close}
-              >
-              CLOSE
-            </button>
-          </div> 
-        </>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleAddFrame}
+          className="text-[var(--app-accent)] p-4"
+          icon={<Icon name="plus" size="sm" />}
+        >
+          Save Frame
+        </Button>
       );
     }
 
