@@ -89,3 +89,72 @@ All activity is visible and coordinated via Farcaster, with zero chance of a mem
 - **Cultural relevance** → Brings a traditional savings method to Web3.
 - **Social + Finance synergy** → Base provides secure transactions, Farcaster keeps members engaged.
 - **Scalable** → Works for local groups, global communities, NGOs, and co-ops.
+
+
+## 8. Project Structure
+
+```
+src/
+  app/
+    page.tsx                # zkLogin landing page
+    dashboard/
+      page.tsx              # Home page
+    groups/
+      page.tsx              # Groups list + create group modal
+    history/
+      page.tsx              # Transaction history
+    layout.tsx              # Shared dashboard layout with footer
+  components/
+    FooterMenu.tsx          # Bottom navigation
+    StatsCard.tsx           # For Home stats
+    TransactionList.tsx     # Reusable list for Home/History
+    GroupCard.tsx           # For group listings
+    CreateGroupModal.tsx    # Modal for creating groups
+  lib/
+    auth.ts                 # zkLogin / SIWE helpers
+    contracts.ts            # Ethers.js contract instances
+    api.ts                  # API calls to backend
+  pages/api/
+    auth/                   # Auth endpoints
+    groups/                 # Group endpoints
+    transactions/           # Transactions API
+```
+
+## Features
+
+- **Smart Contract Security**: Rules are enforced by code — no middleman.
+- **Stablecoin Payments**: USDC on Base for stability.
+- **Automated Payouts**: No delays, no manual handling.
+- **Farcaster Integration**: Social interaction, group management, and payment reminders inside Farcaster.
+- **On-Chain Transparency**: Public record of all contributions and payouts.
+- **Low Fees**: Base network ensures cheap, fast transactions.
+
+## Home
+
+- Dashboard with stats cards:
+  - Total Contributions
+  - Total Received
+  - Active Groups Count
+  - Latest 5 Transactions (incoming/outgoing USDC)
+
+## Groups
+
+- Create Group button opens modal:
+  - Group name
+  - Members’ wallet addresses
+  - Contribution amount
+  - Payout frequency
+- My Groups list:
+  - Group name
+  - Status (Active / Completed)
+  - Members count
+  - Next payout date
+
+## History
+
+- List of all transactions:
+  - Date
+  - Amount
+  - Type (Contribution / Received)
+  - Group name
+- Filter: Contributions | Received
