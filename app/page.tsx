@@ -4,7 +4,7 @@ import {
   useMiniKit,
   useAddFrame,
   useOpenUrl,
-  // useClose
+  useClose
 } from "@coinbase/onchainkit/minikit";
 import {
   Name,
@@ -22,17 +22,17 @@ import {
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { Button } from "./components/DemoComponents";
 import { Icon } from "./components/DemoComponents";
-// import { Home } from "./components/DemoComponents";
-// import { Features } from "./components/DemoComponents";
+import { Home } from "./components/DemoComponents";
+import { Features } from "./components/DemoComponents";
 
 export default function App() {
   const { setFrameReady, isFrameReady, context } = useMiniKit();
   const [frameAdded, setFrameAdded] = useState(false);
-  // const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("home");
 
   const addFrame = useAddFrame();
   const openUrl = useOpenUrl();
-  // const close = useClose();
+  const close = useClose();
 
   useEffect(() => {
     if (!isFrameReady) {
@@ -96,11 +96,11 @@ export default function App() {
           </div>
           <div>{saveFrameButton}</div>
         </header>
-{/* 
+
         <main className="flex-1">
           {activeTab === "home" && <Home setActiveTab={setActiveTab} />}
           {activeTab === "features" && <Features setActiveTab={setActiveTab} />}
-        </main> */}
+        </main>
 
         <footer className="mt-2 pt-4 flex justify-center">
           <Button
