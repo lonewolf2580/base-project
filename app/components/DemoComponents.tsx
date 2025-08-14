@@ -16,6 +16,7 @@ import {
   TransactionStatus,
 } from "@coinbase/onchainkit/transaction";
 import { useNotification } from "@coinbase/onchainkit/minikit";
+import router from "next/router";
 
 type ButtonProps = {
   children: ReactNode;
@@ -165,10 +166,10 @@ export function Home({ setActiveTab }: HomeProps) {
           This is a minimalistic Mini App built with OnchainKit components.
         </p>
         <Button
-          onClick={() => setActiveTab("features")}
+          onClick={() => router.push("/dashboard")}
           icon={<Icon name="arrow-right" size="sm" />}
         >
-          Explore Features
+          Go to Dashboard
         </Button>
       </Card>
 
@@ -413,7 +414,7 @@ function TransactionCard() {
       body: `You sent your a transaction, ${transactionHash}!`,
     });
   }, [sendNotification]);
-
+ 
   return (
     <Card title="Make Your First Transaction">
       <div className="space-y-4">
