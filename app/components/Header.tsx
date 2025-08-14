@@ -12,8 +12,6 @@ import {
   WalletDropdown,
   WalletDropdownDisconnect,
 } from "@coinbase/onchainkit/wallet";
-"use client";
-
 import {
   useMiniKit,
   useAddFrame,
