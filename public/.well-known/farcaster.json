@@ -14,5 +14,8 @@
     "splashImageUrl": "https://roundup-seven.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
     "webhookUrl": "https://roundup-seven.vercel.app/api/webhook"
+  },
+  "baseBuilder": {
+    "allowedAddresses": ["0x260a6ceD71D8f0972a178552467cB1ed158a1cd8"]
   }
 }
